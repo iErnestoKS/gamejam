@@ -1,0 +1,38 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/style.uss?fileID=7433441132597879392&amp;guid=17e448d449fc34223ad0442a2d1db515&amp;type=3#style" />
+    <ui:VisualElement name="state_main_menu" style="display: none; flex-grow: 1; align-items: flex-start; justify-content: flex-start; background-color: rgba(0, 0, 0, 0.48); border-top-left-radius: 9px; border-bottom-left-radius: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 25px; margin-right: 25px; margin-top: 25px; margin-bottom: 25px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px;">
+        <ui:VisualElement name="game_logo" style="width: 100%; height: 50%;">
+            <ui:Label tabindex="-1" text="Nome do JOGO" display-tooltip-when-elided="true" name="game_name" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 200px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="game_begin" style="width: 100%; height: 30%; justify-content: center; align-items: center;">
+            <ui:Button tabindex="-1" text="Iniciar" display-tooltip-when-elided="true" name="game_start" class="game_start" style="width: 500px; height: 150px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; justify-content: center; align-items: center; font-size: 50px; -unity-font-style: bold;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="game_container_buttons" style="flex-direction: row; width: 100%; height: 20%; justify-content: center; align-items: center;">
+            <ui:Button tabindex="-1" text="Sair" display-tooltip-when-elided="true" name="game_exit" style="width: 250px; height: 75px; font-size: 35px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px;" />
+            <ui:Button tabindex="-1" text="Opções" display-tooltip-when-elided="true" name="game_options" style="width: 250px; height: 75px; font-size: 35px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="state_playing" style="flex-grow: 1; display: none; flex-direction: row;">
+        <ui:Label tabindex="-1" text="Tentativas: 10" display-tooltip-when-elided="true" name="trys_count" style="margin-left: 0; height: 100px; width: 50%; align-items: center; justify-content: center; -unity-text-align: middle-left; padding-left: 35px; font-size: 35px; -unity-font-style: bold; -unity-text-outline-color: rgb(255, 255, 255); color: rgb(255, 255, 255);" />
+        <ui:Label tabindex="-1" text="Tempo Restante: 2:00 minutos" display-tooltip-when-elided="true" name="time_left" style="margin-left: 0; height: 100px; width: 50%; align-items: center; justify-content: center; -unity-text-align: middle-left; padding-left: 35px; font-size: 35px; -unity-font-style: bold; -unity-text-outline-color: rgb(255, 255, 255); color: rgb(255, 255, 255);" />
+    </ui:VisualElement>
+    <ui:VisualElement name="state_lost" style="flex-grow: 1; display: none;">
+        <ui:VisualElement style="width: 100%; justify-content: center; align-items: center; height: 35%;">
+            <ui:Label tabindex="-1" text="Você Perdeu" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 100px; -unity-font-style: bold;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: 100%; height: 35%; flex-direction: row; justify-content: center; align-items: center;">
+            <ui:Button tabindex="-1" text="Voltar ao Menu" display-tooltip-when-elided="true" name="game_home" style="width: 200px; height: 200px;" />
+            <ui:Button tabindex="-1" text="Jogar Novamente" display-tooltip-when-elided="true" name="game_replay" style="width: 200px; height: 200px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="state_config" style="flex-grow: 1; display: none;" />
+    <ui:VisualElement name="state_win" style="flex-grow: 1; display: none;">
+        <ui:VisualElement style="width: 100%; justify-content: center; align-items: center; height: 35%;">
+            <ui:Label tabindex="-1" text="Parabens, voce Venceu" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 100px; -unity-font-style: bold;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: 100%; height: 35%; flex-direction: row; justify-content: center; align-items: center;">
+            <ui:Button tabindex="-1" text="Voltar ao Menu" display-tooltip-when-elided="true" name="game_home_win" style="width: 200px; height: 200px;" />
+            <ui:Button tabindex="-1" text="Proxima Fase" display-tooltip-when-elided="true" name="game_replay_win" style="width: 200px; height: 200px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
