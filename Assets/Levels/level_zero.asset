@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2add7302a7bde48bd97b59f6ced4147d, type: 3}
   m_Name: level_zero
   m_EditorClassIdentifier: 
-  trys: 4
+  trys: 10
   isTry: 1
   default_trys: 10
-  time_left: 74.31885
+  time_left: 80
   default_time_left: 80
-  pipes_n_wires: 0101
+  pipes_n_wires: 0000

@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class game_manager : MonoBehaviour {
 
     int clickCount = 0;
+    int xAngle = 0;
     int currentLevel = 0;
     bool timerOn = false;
     bool allTrue = false;
@@ -176,7 +177,7 @@ public class game_manager : MonoBehaviour {
                             return;
                         }
 
-                        if (hit.transform.eulerAngles.z == 90) {
+                        if (hit.transform.eulerAngles.x == 90) {
                             levels[currentLevel].pipes_n_wires[hit.transform.GetComponent<info>().id] = true;
                         } else {
                             levels[currentLevel].pipes_n_wires[hit.transform.GetComponent<info>().id] = false;
@@ -188,7 +189,36 @@ public class game_manager : MonoBehaviour {
                             clickCount = 0;
                         }
 
-                        hit.transform.rotation = Quaternion.Euler(0, 0, Mathf.Abs(clickCount * 90));
+                        switch (clickCount) {
+                            case 0:
+                                xAngle = 0;
+                            break;
+                            case 1:
+                                xAngle = 90;
+                            break;
+                            case 2:
+                                xAngle = 180;
+                            break;
+                            case 3:
+                                xAngle = 270;
+                            break;
+                        }
+
+                        Vector3 rotationToAdd = new Vector3(xAngle, 0, 0);
+
+                        hit.transform.Rotate(rotationToAdd);
+                        // hit.transform.rotation = Quaternion.Slerp(hit.transform.rotation, new Quaternion(xAngle,0,0,0), Time.deltaTime);
+                        // hit.transform.rotation = Quaternion.AngleAxis(xAngle, transform.right);
+                        // hit.transform.rotation = Quaternion.Euler(xAngle, 0, 0);
+
+                        print($" valor: {xAngle}");
+                        print($" rotation: {hit.transform.localRotation}");
+                        print($" euler: {hit.transform.eulerAngles}");
+                        print($" x: {hit.transform.eulerAngles.x}");
+                        print($" y: {hit.transform.eulerAngles.y}");
+                        print($" z: {hit.transform.eulerAngles.z}");
+
+                        // hit.transform.Rotate(Mathf.Abs(clickCount * 90), 0f, 0f, Space.World);
                     }
                 }
             }
@@ -204,7 +234,7 @@ public class game_manager : MonoBehaviour {
                 if (hit.transform != null) {
                     if (hit.transform.gameObject.layer == 6) {
                         
-                        if (hit.transform.eulerAngles.z == 90) {
+                        if (hit.transform.eulerAngles.x == 90) {
                             levels[currentLevel].pipes_n_wires[hit.transform.GetComponent<info>().id] = true;
                         } else {
                             levels[currentLevel].pipes_n_wires[hit.transform.GetComponent<info>().id] = false;
@@ -215,8 +245,9 @@ public class game_manager : MonoBehaviour {
                         if (clickCount == 4) {
                             clickCount = 0;
                         }
-
-                        hit.transform.rotation = Quaternion.Euler(0, 0, Mathf.Abs(clickCount * 90));
+                        print(hit.transform.rotation);
+                        print(hit.transform.rotation.eulerAngles);
+                        // hit.transform.rotation = Quaternion.Euler(Mathf.Abs(clickCount * 90),hit.transform.rotation.eulerAngles.y, hit.transform.rotation.eulerAngles.z);
                     }
                 }
             }
